@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel = "stylesheet" href="{% static 'css/main.css' %}"/>
+</head>
+<body>
+    <h1>Hello Index!</h1>
+    <p>{{ input|upper }}</p>
+    <p>{{ input|cut:"This" }}</p>
+    <p>{{ num|add:"99" }}</p>
+    <div>
+        {% if access_records %}
+            {% for acc in access_records %}
+            <p>{{ acc.name }}</p>
+            <p>{{ acc.date }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No record found</p>
+        {% endif %}
+    </div>
+    <a href="{% url 'basic_app:form_view' %}">The other page</a>
+    <a href="{% url 'admin:index' %}">The index page</a>
+    <a href="{% url 'index_view_0' %}">The index page</a>
+    <img src="{% static 'images/1021409.jpg' %}" alt="Image not found">
+</body>
+</html>
